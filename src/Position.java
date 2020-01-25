@@ -1,83 +1,73 @@
 /**
- * Created by Rukshan on 11/28/2019.
+ * Created by Rukshan
  */
-public class Position {
-    private String unicode ;
-    private float xDirAdj;
-    private float yDirAdj;
+class Position {
+    private String unicode;
+    private float xCoordinate;
+    private float yCoordinate;
     private String word;
-    private int isUsed = 0;
+    private int isUsed;
     private float test;
-    private String fullword;
-    private int isFullWord = 0;
+    private String fullWord;
+    private int isFullWord;
 
-    public Position(String unicode, float xDirAdj, float yDirAdj) {
+    Position(String unicode, float xCoordinate, float yCoordinate) {
         this.unicode = unicode;
-        this.xDirAdj = xDirAdj;
-        this.yDirAdj = yDirAdj;
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
+        isUsed = 0;
+        isFullWord = 0;
     }
 
-    public String getUnicode() {
+    String getUnicode() {
         return unicode;
     }
 
-    public void setUnicode(String unicode) {
-        this.unicode = unicode;
+    float getxCoordinate() {
+        return xCoordinate;
     }
 
-    public float getxDirAdj() {
-        return xDirAdj;
+    float getyCoordinate() {
+        return yCoordinate;
     }
 
-    public void setxDirAdj(float xDirAdj) {
-        this.xDirAdj = xDirAdj;
-    }
-
-    public float getyDirAdj() {
-        return yDirAdj;
-    }
-
-    public void setyDirAdj(float yDirAdj) {
-        this.yDirAdj = yDirAdj;
-    }
-
-    public String getWord() {
+    String getWord() {
         return word;
     }
 
-    public void setWord(String word) {
+    void setWord(String word) {
         this.word = word;
     }
 
-    public int getIsUsed() {
+    int getIsUsed() {
         return isUsed;
     }
 
-    public void setIsUsed(int isUsed) {
-        this.isUsed = isUsed;
+    void setIsUsed() {
+        this.isUsed = 1;
     }
 
-    public float getTest() {
+    float getTest() {
         return test;
     }
 
-    public void setTest(float test) {
+    void setTest(float test) {
         this.test = test;
     }
 
-    public String getFullword() {
-        return fullword;
+    String getFullWord() {
+        return fullWord;
     }
 
-    public void setFullword(String fullword) {
-        this.fullword = fullword;
+    void setFullWord(String fullWord) {
+        this.fullWord = fullWord;
     }
 
-    public int getIsFullWord() {
+    int getIsFullWord() {
         return isFullWord;
     }
 
-    public void setIsFullWord(int isFullWord) {
-        this.isFullWord = isFullWord;
+    void setIsFullWord() {
+        this.isFullWord = 1;
     }
 }
