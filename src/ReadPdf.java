@@ -10,20 +10,22 @@ import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.pdfbox.text.TextPosition;
 
+class ReadPdf extends PDFTextStripper {
 
-public class ReadPdf extends PDFTextStripper {
-
-    static float pWid;
-    static String[][] positions = new String[1000000][10];
-    static List<Position> positionList = new ArrayList<>();
-    private int as = 0;
+    static float pageWidth;
+    private static List<Position> positionList = new ArrayList<>();
 
     ReadPdf() throws IOException {
     }
 
+    static List<Position> getPositionList() {
+        return positionList;
+    }
+
     void ReadData() throws IOException {
 
-        File file = new File("C:\\Users\\Rukshan\\Documents\\Research\\RTest01\\Test.pdf");
+        String basePath = new File("").getAbsolutePath();
+        File file = new File(basePath + "/Test.pdf");
         PDDocument document = PDDocument.load(file);
         PDFTextStripper stripper = new ReadPdf();
         stripper.setSortByPosition(true);
@@ -39,9 +41,8 @@ public class ReadPdf extends PDFTextStripper {
     protected void writeString(String string, List<TextPosition> textPositions) throws IOException {
 
         for (TextPosition text1 : textPositions) {
-            positionList.add(new Position(text1.getUnicode(),text1.getXDirAdj(),text1.getYDirAdj()));
-            pWid = text1.getPageWidth();
+            getPositionList().add(new Position(text1.getUnicode(), text1.getXDirAdj(), text1.getYDirAdj()));
+            pageWidth = text1.getPageWidth();
         }
     }
-
 }
