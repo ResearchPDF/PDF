@@ -1,8 +1,6 @@
 import java.io.IOException;
 
-
 public class PrintTextLocations {
-	
     public static void main( String[] args ) {
     	
     	try {
